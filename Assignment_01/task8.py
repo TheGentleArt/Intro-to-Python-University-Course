@@ -21,19 +21,26 @@
 # $ python3 task8.py a  -1
 # z
 # Test case 3:
-# $ python3 task8.py B  5
+# $ python3 task8.py B  
 #Input value not supported. Program exiting...
 #
-
+# Could improve with changing letter chosen to letter_chosen = letter_chosen.lower().... but instructions were to exit with a warning...
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 chosen_letter = input('Enter your chosen lowercase letter here: ')
 chosen_number = int(input('Enter your chosen integer away from your letter here: '))
-if chosen_number < 0:
-    chosen_number_away = abs(chosen_number)%len(alphabet)*(-1)
+if len(chosen_letter)>1:
+    print('Pick only ONE letter...')
+elif chosen_letter.isupper():
+    print('Uppercase letters not supported...try again with lowercase...')
 else:
-    chosen_number_away = chosen_number%len(alphabet)
-new_letter = alphabet[chosen_number_away+alphabet.index(chosen_letter)]
-# print(chosen_number_away)
-print("The letter '",new_letter,"' is (",chosen_number,") letters away from the letter '",chosen_letter,"'.")
+    if chosen_number < 0:
+        chosen_number_away = abs(chosen_number)%len(alphabet)*(-1)
+    else:
+        chosen_number_away = chosen_number%len(alphabet)
+    chosen_letter_index = alphabet.index(chosen_letter)
+    new_letter_index = (chosen_number_away + chosen_letter_index)%len(alphabet)
+    new_letter = alphabet[new_letter_index]
+    # print(chosen_number_away)
+    print("The letter '",new_letter,"' is (",chosen_number,") letters away from the letter '",chosen_letter,"'.")
 
     
