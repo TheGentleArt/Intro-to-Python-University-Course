@@ -1,3 +1,7 @@
+# Justin Williams
+# EPD 455: Python for Applications in Engineering
+# Assignment 01
+# 2022-09-17
 #
 # Problems statement for problem # 7 on homework:
 #
@@ -28,7 +32,7 @@
 # savings is put in at the end of the month, and thus that monthly savings does
 # not get counted for interest calculations
 down_payment_pct = 0.4
-savings_int_rate_annual = 0.0006
+savings_int_rate_annual = 0.06
 savings_int_rate_monthly = savings_int_rate_annual/12 # Assume not compounded
 initial_savings = 0
 # Ask user to input info
@@ -37,7 +41,7 @@ savings_rate = float(input('Enter your savings rate from your salary (as a decim
 price_car = float(input('Enter the price of the vehicle: '))
 
 down_payment_req = price_car * down_payment_pct
-savings_monthly_deposit = annual_salary * savings_rate
+savings_monthly_deposit = annual_salary/12 * savings_rate
 
 months = 0
 savings = initial_savings
