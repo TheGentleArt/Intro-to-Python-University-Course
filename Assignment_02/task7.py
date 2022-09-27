@@ -31,7 +31,7 @@ def func2():
         trash = (i**2)/32
 
         
-number_itr = 5000
+number_itr = 1000
 time_timeit_func1 = timeit.timeit(stmt=func1,number=number_itr)
 print("timeit module func1 takes about: ", time_timeit_func1/number_itr)
 time_timeit_func2 = timeit.timeit(stmt=func2,number=number_itr)
@@ -64,11 +64,12 @@ print("process_time func1 takes about: ", time_process_time_func2)
 #
 # was getting results of:
 #
-# timeit module func1 takes about:  0.0009168764903016706
-# timeit module func2 takes about:  0.0008573243967230204
+# timeit module func1 takes about:  0.0009192495620599948
+# timeit module func2 takes about:  0.0009274936244997662
 # perf_counter func1 takes about:  0.0008601640001870692
 # perf_counter func2 takes about:  0.0008219690062105656
 # process_time func1 takes about:  0.0008569740000439197
 # process_time func1 takes about:  0.0008225120000133757
 #
 # overall, very similar times.
+# higher variance from perf_counter than timeit
