@@ -1,7 +1,7 @@
 # Justin Williams
 # Assignment 02
 # EPD 455: Python for Applications in Engineering
-# 2022-09-25
+# 2022-09-29
 #
 # Problem 6
 #    The txt file here contains the first 500 lines of the famous book “The Time Machine” by H.G.Wells.
@@ -48,39 +48,3 @@ top_number_to_disp = 10
 print("The top",top_number_to_disp," words found are:")
 for pairs in occurences.most_common()[0:top_number_to_disp]:
     print("   ","'",pairs[0],"'"," with (",pairs[1],") occurences")
-
-
-# random stuff below from past attempts, keeping until satisfied with code
-# =============================================================================
-# # alphabetical="abcdefghijklmnopqrstuvwxyz"
-# # alphabetical = alphabetical.lower() + alphabetical.upper()
-# 
-# # word_list = str(mod_file_contents).split()
-# 
-# # # for word in word_list:
-# # #     if (word[0] in alphabetical) and word[-1]:
-# # #         mod_word_list.append(word)
-# 
-# # logic_list = []
-# # clean_words = []
-# # dirty_words = []
-# # for word in word_list:
-# #     if set(word).issubset(set(alphabetical)):
-# #         clean_words.append(word)
-# #     else:
-# #         dirty_words.append(word)
-# 
-# # for word in dirty_words:
-# #     for char in dirty_words
-# 
-# =============================================================================
-            
-        
-
-
-        
-        
-    
-    
-
-    
