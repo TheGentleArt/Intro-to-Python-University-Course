@@ -23,34 +23,63 @@
 #    i − 51 t i m e s
 #    t h a t − 51 t i m e s
 #
-# "here" hyperlink goes to: 
-
-# number_of_words = 0
-# with open("sample.txt", "r") as myfile:
-#     file_contents = myfile.read()
-#     count = 0
-#     for line in file_contents:
-#         word = line.split()
-#         count += len(word)
-#     print("Total number of words: " + str(count))
-
-alphabetical="abcdefghijklmnopqrstuvwxyz"
-alphabetical = alphabetical.lower() + alphabetical.upper()
 
 
+import re # Regular Expressions
+from collections import Counter
 
-
+# open file, strip out new line characters, convert list of strings (lines)
+# to one string, then convert uppercase letters to lowercase
 myfile = open('task6file.txt', 'r')
 file_contents = myfile.readlines() # creates an list with each line being a different element
-
 mod_file_contents = []
-
 for line in file_contents:
     mod_file_contents.append(line.strip())
-    
-stringy = mod_file_contents[144:152]
+file_contents = ' '.join(mod_file_contents)
+file_contents = file_contents.lower()
 
-    
+pattern_to_keep = '[a-z]+'      # pattern to search for using 'regular expressions'   
+# found via https://www.pythontutorial.net/python-regex/python-regex-findall/
+list_of_words = re.findall(pattern_to_keep, file_contents)
+
+occurences = Counter(list_of_words)
+
+top_number_to_disp = 10
+print("The top",top_number_to_disp," words found are:")
+for pairs in occurences.most_common()[0:top_number_to_disp]:
+    print("   ","'",pairs[0],"'"," with (",pairs[1],") occurences")
+
+
+# random stuff below from past attempts, keeping until satisfied with code
+# =============================================================================
+# # alphabetical="abcdefghijklmnopqrstuvwxyz"
+# # alphabetical = alphabetical.lower() + alphabetical.upper()
+# 
+# # word_list = str(mod_file_contents).split()
+# 
+# # # for word in word_list:
+# # #     if (word[0] in alphabetical) and word[-1]:
+# # #         mod_word_list.append(word)
+# 
+# # logic_list = []
+# # clean_words = []
+# # dirty_words = []
+# # for word in word_list:
+# #     if set(word).issubset(set(alphabetical)):
+# #         clean_words.append(word)
+# #     else:
+# #         dirty_words.append(word)
+# 
+# # for word in dirty_words:
+# #     for char in dirty_words
+# 
+# =============================================================================
+            
+        
+
+
+        
+        
     
     
 
