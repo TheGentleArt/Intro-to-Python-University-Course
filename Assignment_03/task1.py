@@ -52,10 +52,10 @@ print("The last element of B was: ", B[-1],"\n")
 
 # Generating list C
 tic = time.process_time()
-C = []
+C = [None]*num_points
 for number in range(0,len(A)):
     if number % 2 == 0:
-        C.append(A[number]**2)
+        C[number] = (A[number]**2)
 toc = time.process_time()
 tictoc_C = toc-tic
 print("Time to get C was: ", tictoc_C)
@@ -64,11 +64,11 @@ print("The last element of C was: ", C[-1],"\n")
 
 # Generating list D
 tic = time.process_time()
-D = []
+D = [None]*num_points
 i = 0
 while i < len(A):
     if i % 2 == 0:
-        D.append(A[i]**2)
+        D[i] = A[i]**2
     i += 1
 toc = time.process_time()
 tictoc_D = toc-tic
@@ -78,4 +78,4 @@ print("Time to get D was: ", tictoc_D)
 print("The first element of D was: ", D[0])
 print("The last element of D was: ", D[-1],"\n")
 print("Time for C was ",round((tictoc_C/tictoc_B-1)*100,2),"% more time than B.")
-print("Time for D was ",round((tictoc_D/tictoc_B-1)*100,2),"% more time than B.\n")   
+print("Time for D was ",round((tictoc_D/tictoc_B-1)*100,2),"% more time than B.\n")
