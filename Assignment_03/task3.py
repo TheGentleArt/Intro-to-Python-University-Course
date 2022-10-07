@@ -24,30 +24,45 @@
 # =============================================================================
 #
 
-from random import randint
+# from random import randint
+import numpy as np
+
+
 
 def dataGen(n,a,b,fileName):
-    values = [ randint(a,b) for i in range(0,n)]
-    with open(fileName, "x") as file:
-        file.write(str(values))
-# testing above code:  
-dataGen(10,1,4,"randofile1.txt")
-dataGen(10,-10,10,"randofile2.txt")
+    values = np.random.randint(a, b, size=n)
+    #values = [ randint(a,b) for i in range(0,n)] # could not get to work well..Typicall use numpy or pandas or csv module and do not open and write etc to files with core python...unfamiliar with this, so using numpy 
+    with open(fileName, "w") as file:
+        for item in values:
+            file.write(f'{item}'+' ')
+    return values
+
+
 
 def dataRead(fileName):
     with open(fileName, "r") as file:
-        for item in file:
-            return item
-# testing above code:
-print("randoFile1 contents: \n",dataRead("randofile1.txt"),"\n")
-print("randoFile1 contents: \n",dataRead("randofile2.txt"),"\n")
+        data = file.read().split()
+        data = [int(elem) for elem in data] 
+        return data
+
+
 
 def sumFile(fileName1, fileName2, k):
-    with open(fileName1, "r") as file1, open(fileName2, "r") as file2:
-        for items in file1:
-            file_contents_1 = items
-            return file_contents_1
-        for items in file2:
-            file_contents_2 = items
-# Still need to finish this up...
-        
+    list1 = dataRead(fileName1)
+    list2 = dataRead(fileName2)
+    pairs_pos = []
+    for i in list1:
+        for j in list2:
+            if (i+j) == k:
+                pairs_pos.append((i,j)) # could increment i and j within their loops to only search for first one. Instructions do not say to do this. Results seem to show this though. On discussion post, recall seeing that the sample output was to be updated once this was pointed out...
+    return pairs_pos
+
+
+# # testing above code:  
+# dataGen(5,1,4,"randoFile1.txt")
+# dataGen(5,1,4,"randoFile2.txt")
+# print("randoFile1 contents: \n",dataRead("randoFile1.txt"),"\n")
+# print("randoFile2 contents: \n",dataRead("randoFile2.txt"),"\n")
+# print(sumFile('randoFile1.txt','randoFile2.txt',4))
+
+      
